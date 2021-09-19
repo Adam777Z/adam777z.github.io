@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-100" lang="en">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,15 +10,18 @@
 	<title>About Me | Adam's site</title>
 
 	<link rel="icon" type="image/png" href="./favicon.png">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="./assets/css/style.css">
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous" defer></script>
+	<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/css/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="./assets/css/fontawesome.min.css">
+	<link rel="stylesheet" href="./assets/css/fontawesome-brands.min.css">
+	<!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+
+	<script src="./assets/js/bootstrap.bundle.min.js"></script>
+	<script src="./assets/js/jquery-3.6.0.min.js"></script>
 	<!-- <script src="./assets/js/script.js"></script> -->
 </head>
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column">
 	<nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 		<div class="container">
 			<a class="navbar-brand" href="./">Adam's site</a>
@@ -28,7 +31,7 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="nav nav-pills">
 					<li class="nav-item">
-						<a class="nav-link active" href="./">About Me <span class="sr-only">(current)</span></a>
+						<a class="nav-link active" href="./" aria-current="page">About Me</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="./apps/">Apps</a>
@@ -51,12 +54,12 @@
 	</nav>
 
 	<main role="main" class="container">
-		<div class="jumbotron">
+		<div class="p-4 my-4 bg-light rounded-3">
 			<h2 class="text-center">About Me</h2>
 			<p>Hello, my name is Adam. I am a Full Stack PHP Web Developer with over 15 years of experience in <a href="https://en.wikipedia.org/wiki/Information_technology" target="_blank"><abbr title="Information Technology">IT</abbr></a>. I am mostly self-taught.</p>
 			<p class="mb-0">My skills, knowledge, and experience include:</p>
 			<div class="row">
-				<div class="col">
+				<div class="col-md">
 					<ul class="pl-3">
 						<li><a href="https://www.php.net" target="_blank" title="PHP">PHP</a></li>
 						<li><a href="https://en.wikipedia.org/wiki/HTML" target="_blank" title="HTML">HTML</a></li>
@@ -90,7 +93,7 @@
 						<li><a href="https://en.wikipedia.org/wiki/Regular_expression" target="_blank" title="Regular expression">Regular expression</a></li>
 					</ul>
 				</div>
-				<div class="col">
+				<div class="col-md">
 					<ul class="pl-3">
 						<li><a href="https://wordpress.org" target="_blank" title="WordPress">WordPress</a> (including <a href="https://wordpress.org/themes/" target="_blank" title="WordPress theme">theme</a> and <a href="https://wordpress.org/plugins/" target="_blank" title="WordPress plugin">plugin</a> development)</li>
 						<li>WordPress page builders (<a href="https://wordpress.org/gutenberg/" target="_blank" title="Gutenberg (WordPress)">Gutenberg</a>, <a href="https://www.elegantthemes.com/gallery/divi/" target="_blank" title="Divi (WordPress)">Divi</a>, <a href="https://wpbakery.com" target="_blank" title="WPBakery (WordPress)">WPBakery</a>, etc.)</li>
@@ -130,9 +133,9 @@
 	<footer class="footer mt-auto py-3 bg-light">
 		<div class="container text-center">
 			<div class="profile-buttons">
-				<a href="https://www.linkedin.com/in/adam-papp/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x mr-1"></i></a>
-				<a href="https://github.com/Adam777Z" target="_blank" title="GitHub"><i class="fab fa-github fa-2x mr-1"></i></a>
-				<a href="https://www.freecodecamp.org/adam777" target="_blank" title="freeCodeCamp"><i class="fab fa-free-code-camp fa-2x mr-1"></i></a>
+				<a href="https://www.linkedin.com/in/adam-papp/" target="_blank" title="LinkedIn"><i class="bi bi-linkedin fs-2 me-1"></i></a>
+				<a href="https://github.com/Adam777Z" target="_blank" title="GitHub"><i class="bi bi-github fs-2 me-1"></i></a>
+				<a href="https://www.freecodecamp.org/adam777" target="_blank" title="freeCodeCamp"><i class="fab fa-free-code-camp fs-2"></i></a>
 			</div>
 			<span class="text-muted">Made by Adam</span>
 		</div>

@@ -1,8 +1,5 @@
-blockquote {
+.blockquote {
 	border-left: 5px solid #ddd;
 	padding: 0.5rem 1rem;
-}
-
-.blockquote {
 	margin-bottom: 0;
 }
