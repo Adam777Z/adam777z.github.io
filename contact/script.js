@@ -22,10 +22,11 @@ function onSubmit(token) {
 	submit_button.disabled = true;
 	submit_button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading...</span></span> <span>Sending...</span>';
 
-	let alerts = [].slice.call(document.querySelectorAll('#contact-form-result .alert')).map(function (element) { return new bootstrap.Alert(element); });
+	let contact_form_result_alert = document.querySelector('#contact-form-result .alert');
 
-	if (alerts.length) {
-		bootstrap.Alert.getInstance(document.querySelector('#contact-form-result .alert')).close();
+	if (contact_form_result_alert) {
+		new bootstrap.Alert(contact_form_result_alert);
+		bootstrap.Alert.getInstance(contact_form_result_alert).close();
 	}
 
 	$.ajax({
