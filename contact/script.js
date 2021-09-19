@@ -1,5 +1,9 @@
-$(document).ready(function() {
-	$('#contact-form').submit(function(event) {
+var submit_button;
+
+document.addEventListener('DOMContentLoaded', function (event) {
+	submit_button = document.getElementById('submit-button');
+
+	document.getElementById('contact-form').addEventListener('submit', function (event) {
 		event.preventDefault();
 		grecaptcha.reset();
 		grecaptcha.execute();
@@ -15,8 +19,14 @@ function onloadCallback() {
 }
 
 function onSubmit(token) {
-	$('#submit-button').attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading...</span></span> <span>Sending...</span>');
-	$('#contact-form-result .alert').alert('close');
+	submit_button.disabled = true;
+	submit_button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading...</span></span> <span>Sending...</span>';
+
+	let alerts = [].slice.call(document.querySelectorAll('#contact-form-result .alert')).map(function (element) { return new bootstrap.Alert(element); });
+
+	if (alerts.length) {
+		bootstrap.Alert.getInstance(document.querySelector('#contact-form-result .alert')).close();
+	}
 
 	$.ajax({
 		url: 'https://usebasin.com/f/f8a55f3aacfc.json',
@@ -30,13 +40,15 @@ function onSubmit(token) {
 		dataType: 'json'
 	})
 	.done(function() {
-		$('#submit-button').removeAttr('disabled').html('Send');
 		$('#contact-form-result').html('<div class="alert alert-success alert-dismissible fade show mt-2 mb-0" role="alert"><span>Email sent successfully.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
 		// $('#name, #email, #message').val('');
 		$('#contact-form').trigger('reset');
 	})
 	.fail(function() {
-		$('#submit-button').removeAttr('disabled').html('Send');
 		$('#contact-form-result').html('<div class="alert alert-danger alert-dismissible fade show mt-2 mb-0" role="alert"><span>Error. Please try again.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+	})
+	.always(function() {
+		submit_button.disabled = false;
+		submit_button.textContent = 'Send';
 	});
 }

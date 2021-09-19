@@ -1,5 +1,5 @@
-// $(document).ready(function() {
-// 	$('body').scrollspy({
+// document.addEventListener('DOMContentLoaded', function (event) {
+// 	new bootstrap.ScrollSpy(document.body, {
 // 		target: '#navbar'
 // 	});
 
