@@ -15,7 +15,7 @@ function onloadCallback() {
 }
 
 function onSubmit(token) {
-	$('#submit-button').attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> <span>Sending...</span>');
+	$('#submit-button').attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm" role="status"><span class="visually-hidden">Loading...</span></span> <span>Sending...</span>');
 	$('#contact-form-result .alert').alert('close');
 
 	$.ajax({
@@ -31,12 +31,12 @@ function onSubmit(token) {
 	})
 	.done(function() {
 		$('#submit-button').removeAttr('disabled').html('Send');
-		$('#contact-form-result').html('<div class="alert alert-success alert-dismissible fade show mt-2 mb-0" role="alert"><span>Email sent successfully.</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$('#contact-form-result').html('<div class="alert alert-success alert-dismissible fade show mt-2 mb-0" role="alert"><span>Email sent successfully.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
 		// $('#name, #email, #message').val('');
 		$('#contact-form').trigger('reset');
 	})
 	.fail(function() {
 		$('#submit-button').removeAttr('disabled').html('Send');
-		$('#contact-form-result').html('<div class="alert alert-danger alert-dismissible fade show mt-2 mb-0" role="alert"><span>Error. Please try again.</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$('#contact-form-result').html('<div class="alert alert-danger alert-dismissible fade show mt-2 mb-0" role="alert"><span>Error. Please try again.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
 	});
 }
