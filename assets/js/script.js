@@ -1,14 +1,16 @@
-// document.addEventListener('DOMContentLoaded', function (event) {
-// 	new bootstrap.ScrollSpy(document.body, {
-// 		target: '#navbar'
-// 	});
+document.addEventListener('DOMContentLoaded', function (event) {
+	// new bootstrap.ScrollSpy(document.body, {
+	// 	target: '#navbar'
+	// });
 
-// 	// Smooth Scroll to ID
-// 	$('a[href*="#"]').on('click', function(e) {
-// 		e.preventDefault();
+	// Smooth Scroll to ID
+	document.querySelector('a[href*="#"]').addEventListener('click', function (event) {
+		event.preventDefault();
 
-// 		$('html, body').animate({
-// 			scrollTop: $($(this).attr('href')).offset().top
-// 		}, 200, 'linear');
-// 	});
-// });
+		document.querySelector(this.getAttribute('href')).scrollIntoView({ 'behavior': 'smooth' });
+
+		// $('html, body').animate({
+		// 	scrollTop: $($(this).attr('href')).offset().top
+		// }, 200, 'linear');
+	});
+});
