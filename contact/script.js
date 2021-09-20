@@ -1,9 +1,9 @@
 var submit_button;
 
 document.addEventListener('DOMContentLoaded', function (event) {
-	submit_button = document.getElementById('submit-button');
+	submit_button = document.querySelector('#submit-button');
 
-	document.getElementById('contact-form').addEventListener('submit', function (event) {
+	document.querySelector('#contact-form').addEventListener('submit', function (event) {
 		event.preventDefault();
 		grecaptcha.reset();
 		grecaptcha.execute();
@@ -33,20 +33,20 @@ function onSubmit(token) {
 		url: 'https://usebasin.com/f/f8a55f3aacfc.json',
 		method: 'POST',
 		data: {
-			'Name': $('#name').val(),
-			'Email': $('#email').val(),
-			'Message': $('#message').val(),
+			'Name': document.querySelector('#name').value,
+			'Email': document.querySelector('#email').value,
+			'Message': document.querySelector('#message').value,
 			'g-recaptcha-response': token
 		},
 		dataType: 'json'
 	})
 	.done(function() {
-		$('#contact-form-result').html('<div class="alert alert-success alert-dismissible fade show mt-2 mb-0" role="alert"><span>Email sent successfully.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
-		// $('#name, #email, #message').val('');
-		$('#contact-form').trigger('reset');
+		document.querySelector('#contact-form-result').innerHTML = '<div class="alert alert-success alert-dismissible fade show mt-2 mb-0" role="alert"><span>Email sent successfully.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+		// document.querySelectorAll('#name, #email, #message').forEach(e => e.value = '');
+		document.querySelector('#contact-form').reset();
 	})
 	.fail(function() {
-		$('#contact-form-result').html('<div class="alert alert-danger alert-dismissible fade show mt-2 mb-0" role="alert"><span>Error. Please try again.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+		document.querySelector('#contact-form-result').innerHTML = '<div class="alert alert-danger alert-dismissible fade show mt-2 mb-0" role="alert"><span>Error. Please try again.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 	})
 	.always(function() {
 		submit_button.disabled = false;
