@@ -29,26 +29,35 @@ function onSubmit(token) {
 		bootstrap.Alert.getInstance(contact_form_result_alert).close();
 	}
 
-	$.ajax({
-		url: 'https://usebasin.com/f/f8a55f3aacfc.json',
-		method: 'POST',
-		data: {
+	fetch('https://usebasin.com/f/f8a55f3aacfc.json', {
+		'method': 'POST',
+		'headers': {
+			'Content-Type': 'application/json',
+		},
+		'body': JSON.stringify({
 			'Name': document.querySelector('#name').value,
 			'Email': document.querySelector('#email').value,
 			'Message': document.querySelector('#message').value,
 			'g-recaptcha-response': token
-		},
-		dataType: 'json'
+		}),
+		'cache': 'no-store'
 	})
-	.done(function() {
+	.then((response) => {
+		if (response.ok) {
+			return response.json();
+		} else {
+			throw 'Error';
+		}
+	})
+	.then((data) => {
 		document.querySelector('#contact-form-result').innerHTML = '<div class="alert alert-success alert-dismissible fade show mt-2 mb-0" role="alert"><span>Email sent successfully.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 		// document.querySelectorAll('#name, #email, #message').forEach(e => e.value = '');
 		document.querySelector('#contact-form').reset();
 	})
-	.fail(function() {
+	.catch((error) => {
 		document.querySelector('#contact-form-result').innerHTML = '<div class="alert alert-danger alert-dismissible fade show mt-2 mb-0" role="alert"><span>Error. Please try again.</span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
 	})
-	.always(function() {
+	.finally(() => {
 		submit_button.disabled = false;
 		submit_button.textContent = 'Send';
 	});
