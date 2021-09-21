@@ -32,7 +32,7 @@ function onSubmit(token) {
 	fetch('https://usebasin.com/f/f8a55f3aacfc.json', {
 		'method': 'POST',
 		'headers': {
-			'Content-Type': 'application/json',
+			'Content-Type': 'application/json'
 		},
 		'body': JSON.stringify({
 			'Name': document.querySelector('#name').value,
