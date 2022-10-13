@@ -43,7 +43,7 @@ function onSubmit(token) {
 		'cache': 'no-store'
 	})
 	.then((response) => {
-		if (response.ok) {
+		if (response['ok']) {
 			return response.json();
 		} else {
 			throw 'Error';
