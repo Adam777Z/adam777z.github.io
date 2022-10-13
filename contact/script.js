@@ -1,10 +1,10 @@
 var submit_button;
 
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', (event) => {
 	submit_button = document.querySelector('#submit-button');
 
-	document.querySelector('#contact-form').addEventListener('submit', function (event) {
-		event.preventDefault();
+	document.querySelector('#contact-form').addEventListener('submit', (event2) => {
+		event2.preventDefault();
 		grecaptcha.reset();
 		grecaptcha.execute();
 	});
