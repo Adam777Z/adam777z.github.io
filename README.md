@@ -1,1 +1,1 @@
-Adam's personal site, hosted on GitHub Pages (https://pages.github.com).
+Adam's personal site, hosted on [GitHub Pages](https://pages.github.com).
