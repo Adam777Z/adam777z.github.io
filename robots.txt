@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://adam777z.github.io/sitemap.xml
