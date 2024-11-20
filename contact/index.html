@@ -16,12 +16,11 @@
 	<link rel="stylesheet" href="../assets/css/fontawesome.min.css">
 	<link rel="stylesheet" href="../assets/css/fontawesome-brands.min.css">
 	<!-- <link rel="stylesheet" href="../assets/css/style.min.css"> -->
-	<link rel="stylesheet" href="style.min.css">
 
 	<script src="../assets/js/bootstrap.bundle.min.js"></script>
 	<!-- <script src="../assets/js/script.min.js"></script> -->
 	<script src="script.min.js"></script>
-	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+	<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body class="d-flex flex-column h-100">
 	<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -71,10 +70,7 @@
 						<input id="name" class="form-control mb-2" type="text" name="Name" placeholder="Your name" required>
 						<input id="email" class="form-control mb-2" type="email" name="Email" placeholder="Your email address" required>
 						<textarea id="message" class="form-control mb-2" rows="3" name="Message" placeholder="Your message" required></textarea>
-						<div class="mb-2">
-							<span>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="nofollow noopener noreferrer" title="Privacy Policy">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="nofollow noopener noreferrer" title="Terms of Service">Terms of Service</a> apply.</span>
-							<div id="recaptcha" class="g-recaptcha"></div>
-						</div>
+						<div class="cf-turnstile" data-sitekey="0x4AAAAAAA0V_cfzw8xf_UYO"></div>
 						<button id="submit-button" class="btn btn-primary mx-auto d-block" type="submit">Send</button>
 					</form>
 					<div id="contact-form-result"></div>
